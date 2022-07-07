@@ -54,3 +54,12 @@ http://localhost:3000/users/:id
 GET
 Body > raw > JSON
 Authorization > Type > Bearer Token
+
+error message addition in register, nodemon instalation, 
+
+ROLE:
+part 2: 48:07
+part 3: 32:03
+
+SKIPPED: 
+Part 4, 

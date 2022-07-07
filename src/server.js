@@ -4,9 +4,11 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const unless = require('express-unless')
 const auth = require('./helpers/jwt.js');
-const users = require('./controllers/UserController.js')
 const errors = require('./helpers/errorHandler.js')
 const env = require("dotenv"); // npm install --save dotenv (CREATING AND CONNECTING TO SERVER)
+
+//routes
+const users = require('./controllers/UserController.js')
 
 app.use(cors({origin: "http://localhost:3001"})) // Default = CORS-enabled for all origins Access-Control-Allow-Origin: *!
 app.use(express.json()) // middleware for parsing application/json
@@ -19,7 +21,7 @@ app.use(auth.authenticateToken.unless({
         { url: '/users/login', methods: ['POST']},
         { url: '/users/register', methods: ['POST']}
     ]
-}))
+})) 
 
 app.use('/users', users) // middleware for listening to routes
 app.use(errors.errorHandler); // middleware for error responses
