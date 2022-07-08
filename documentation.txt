@@ -31,6 +31,9 @@ AUTH API'S:
 - npm i shortid
 - npm install --save body-parser
 
+CATEGORY API'S:
+- npm i slugify
+
 POSTMAN TESTINGS:
 
 localhost:3000/users/register
@@ -55,6 +58,39 @@ GET
 Body > raw > JSON
 Authorization > Type > Bearer Token
 
+////////////////////////////////////////////////////
+
+http://localhost:3000/api/category/create
+POST
+Body > raw > JSON
+Authorization > Type > Bearer Token
+{
+  "name": "cat name"
+}
+
+[LINKING SUB CAT TO CAT]http://localhost:3000/api/category/create
+POST
+Body > raw > JSON
+Authorization > Type > Bearer Token
+{
+  "name": "sub cat name
+  "parentId": "id of cat"
+}
+
+[LINKING SUB SUB CAT TO SUB CAT]http://localhost:3000/api/category/create
+POST
+Body > raw > JSON
+Authorization > Type > Bearer Token
+{
+  "name": "sub sub cat name
+  "parentId": "id of sub cat"
+}
+
+http://localhost:3000/categories/get-categories
+GET
+Body > raw > JSON
+
+/////////////////////////////////////////////////
 
 ROLE:
 part 2: 48:07
@@ -62,3 +98,5 @@ part 3: 32:03
 
 SKIPPED: 
 Part 4, 
+
+add API for create and view categories, sub cat and sub sub cat

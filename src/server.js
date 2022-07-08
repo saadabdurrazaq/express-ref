@@ -9,22 +9,28 @@ const env = require("dotenv"); // npm install --save dotenv (CREATING AND CONNEC
 
 //routes
 const users = require('./controllers/UserController.js')
+const categories = require('./controllers/CategoryController.js')
 
 app.use(cors({origin: "http://localhost:3001"})) // Default = CORS-enabled for all origins Access-Control-Allow-Origin: *!
 app.use(express.json()) // middleware for parsing application/json
 app.use(express.urlencoded({ extended: false })) // for parsing application/x-www-form-urlencoded
 
 // middleware for authenticating token submitted with requests
+// All routes are authorized except all the routes below
 auth.authenticateToken.unless = unless
 app.use(auth.authenticateToken.unless({
     path: [
         { url: '/users/login', methods: ['POST']},
-        { url: '/users/register', methods: ['POST']}
+        { url: '/users/register', methods: ['POST']},
+        { url: '/categories/get-categories', methods: ['GET']}
     ]
 })) 
 
-app.use('/users', users) // middleware for listening to routes
-app.use(errors.errorHandler); // middleware for error responses
+// middleware for listening to routes
+app.use('/users', users)
+app.use('/categories', categories)
+// middleware for error responses
+app.use(errors.errorHandler);
 
 // MongoDB connection, success and error event responses
 const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.vnv8t.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`;

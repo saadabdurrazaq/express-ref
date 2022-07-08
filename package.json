@@ -17,7 +17,9 @@
     "express-unless": "^0.5.0",
     "jsonwebtoken": "^8.5.1",
     "mongodb": "^3.6.9",
-    "mongoose": "^5.13.4"
+    "mongoose": "^5.13.4",
+    "shortid": "^2.2.16",
+    "slugify": "^1.6.5"
   },
   "devDependencies": {
     "nodemon": "^2.0.19"

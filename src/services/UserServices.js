@@ -2,6 +2,7 @@ const User = require("../models/UserModel");
 const bcrypt = require("bcryptjs");
 const auth = require("../helpers/jwt.js");
 
+
 async function login({ username, password }) {
   const user = await User.findOne({ username });
 
