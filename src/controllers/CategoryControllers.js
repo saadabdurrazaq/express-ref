@@ -37,9 +37,9 @@ async function addCategory(req, res) {
     createdBy: user._id,
   }; 
 
-  // if (req.file) {
-  //   categoryObj.categoryImage = "/public/" + req.file.filename;
-  // }
+  if (req.file) {
+    categoryObj.category_pict = "/public/" + req.file.filename;
+  }
 
   if (req.body.parentId) {
     categoryObj.parentId = req.body.parentId; 

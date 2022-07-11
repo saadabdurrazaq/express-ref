@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const { requireSignin } = require("../common-middleware");
-const { createProduct, getProductsBySlug, getProductDetailsById, deleteProductById, getProducts } = require("../services/ProductServices");
+const { createProduct, getProductsBySlug, getProductDetailsById, deleteProductById, getProducts } = require("../controllers/ProductControllers");
 const shortid = require("shortid");
 const path = require("path");
 // multer usage

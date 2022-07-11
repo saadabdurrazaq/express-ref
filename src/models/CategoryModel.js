@@ -16,7 +16,7 @@ const categorySchema = new Schema(
     type: {
       type: String,
     },
-    //categoryImage: { type: String },
+    category_pict: { type: String },
     parentId: {
       type: String,
     },
