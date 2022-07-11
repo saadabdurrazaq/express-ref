@@ -7,9 +7,10 @@ const auth = require('./helpers/jwt.js');
 const errors = require('./helpers/errorHandler.js')
 const env = require("dotenv"); // npm install --save dotenv (CREATING AND CONNECTING TO SERVER)
 
-//routes
+// Register all the routes
 const users = require('./controllers/UserController.js')
 const categories = require('./controllers/CategoryController.js')
+const products = require('./controllers/ProductController.js')
 
 app.use(cors({origin: "http://localhost:3001"})) // Default = CORS-enabled for all origins Access-Control-Allow-Origin: *!
 app.use(express.json()) // middleware for parsing application/json
@@ -29,6 +30,7 @@ app.use(auth.authenticateToken.unless({
 // middleware for listening to routes
 app.use('/users', users)
 app.use('/categories', categories)
+app.use('/products', products)
 // middleware for error responses
 app.use(errors.errorHandler);
 

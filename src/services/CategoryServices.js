@@ -3,6 +3,7 @@ const slugify = require("slugify");
 const shortid = require("shortid");
 const User = require("../models/UserModel");
 
+// create categories and its sub categories and its sub sub categories if any
 function createCategories(categories, parentId = null) { 
   const categoryList = [];
   let category;
@@ -53,7 +54,7 @@ async function addCategory(req, res) {
   });
 };
 
-async function getCategories(req, res){ // get categories and its sub categories and its sub sub categories
+async function getCategories(req, res){ // get categories and its sub categories and its sub sub categories if any
   Category.find({}).exec((error, categories) => {
     if (error) return res.status(400).json({ error });
     if (categories) {
@@ -63,19 +64,11 @@ async function getCategories(req, res){ // get categories and its sub categories
   });
 };
 
-// exports.getCategories = (req, res) => { // get categories and its sub categories
-//   Category.find({}).exec((error, categories) => {
-//     if (error) return res.status(400).json({ error });
-//     if (categories) {
-//       const categoryList = createCategories(categories);
-//       res.status(200).json({ categoryList });
-//     }
-//   });
-// };
-
-// exports.updateCategories = async (req, res) => {
+// bug still here in updateCategories
+// async function updateCategories(req, res) {
 //   const { _id, name, parentId, type } = req.body;
 //   const updatedCategories = [];
+
 //   if (name instanceof Array) {
 //     for (let i = 0; i < name.length; i++) {
 //       const category = {
@@ -129,5 +122,6 @@ async function getCategories(req, res){ // get categories and its sub categories
 
 module.exports = {
   addCategory,
-  getCategories
+  getCategories,
+  // updateCategories,
 };

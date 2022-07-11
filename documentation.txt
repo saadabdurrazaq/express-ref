@@ -24,15 +24,14 @@ CREATING DATABASE:
   - Choose a connection method > Connect your application > copy connection string )
 - implement the connection string in .env and index.server.js
 
-AUTH API'S:
+NPM FOR CRUDS AND API'S AUTH:
+- npm install --save multer
+- npm i slugify
 - npm install --save bcrypt
 - npm install --save jsonwebtoken
 - configure JWT_SECRET in .env file
 - npm i shortid
 - npm install --save body-parser
-
-CATEGORY API'S:
-- npm i slugify
 
 POSTMAN TESTINGS:
 
@@ -79,8 +78,8 @@ Authorization > Type > Bearer Token
 
 [LINKING SUB SUB CAT TO SUB CAT]http://localhost:3000/api/category/create
 POST
-Body > raw > JSON
 Authorization > Type > Bearer Token
+Body > raw > JSON
 {
   "name": "sub sub cat name
   "parentId": "id of sub cat"
@@ -89,6 +88,21 @@ Authorization > Type > Bearer Token
 http://localhost:3000/categories/get-categories
 GET
 Body > raw > JSON
+
+[BUG IS STILL HERE] http://localhost:3000/categories/update
+POST
+Authorization > Type > Bearer Token
+Body > form-data
+Key: name, parentId, type, name, parentId, type
+Value: iPhone, ---, page, Samsung, --, product, 
+
+/////////////////////////////////////////////////
+
+http://localhost:3000/products/create
+POST
+Body > form-data
+Authorization > Type > Bearer Token
+Key: name, product_pict, product_pict, ... , price, description, quantity, category(id),
 
 /////////////////////////////////////////////////
 
@@ -99,4 +113,12 @@ part 3: 32:03
 SKIPPED: 
 Part 4, 
 
-add API for create and view categories, sub cat and sub sub cat
+STOPPED: 
+Part 7,
+
+NEXT: 
+Part 21 
+
+UPLOADING FILE EXPLANATION: Part 7
+
+add API CRUD for products

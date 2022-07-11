@@ -5,7 +5,6 @@ const path = require("path");
 // const multer = require("multer");
 const categoryServices = require('../services/CategoryServices.js')  
 const { addCategory, getCategories, updateCategories, deleteCategories } = require("../services/CategoryServices.js");   
-// const { requireSignin, adminMiddleware, superAdminMiddleware } = require("../common-middleware"); 
 const { requireSignin } = require("../common-middleware"); 
 
 // const storage = multer.diskStorage({
@@ -30,14 +29,13 @@ router.get(
   getCategories
 );
 
-// router.get("/category/getcategory", getCategories);
 // router.post(
-//   "/category/update",
+//   "/update",
 //   requireSignin,
-//   superAdminMiddleware,
-//   upload.array("categoryImage"),
+//   // upload.array("categoryImage"),
 //   updateCategories
 // );
+
 // router.post(
 //   "/category/delete",
 //   requireSignin,
