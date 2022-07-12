@@ -1,7 +1,7 @@
 cd <your_dir>
 npm init
 fill the required fields, it will generate package.json
-npm install express mongoose express-unless bcryptjs dotenv jsonwebtoken — save
+npm install express mongoose express-unless bcryptjs dotenv jsonwebtoken --save
 [NOTE]:
 All npm install package will be added in package.json
 npm list express (for checking express version)
@@ -25,13 +25,13 @@ CREATING DATABASE:
 - implement the connection string in .env and index.server.js
 
 NPM FOR CRUDS AND API'S AUTH:
+- npm install --save express-validator
 - npm install --save multer
 - npm i slugify
 - npm install --save bcrypt
 - npm install --save jsonwebtoken
 - configure JWT_SECRET in .env file
 - npm i shortid
-- npm install --save body-parser
 
 POSTMAN TESTINGS:
 
@@ -41,6 +41,7 @@ Body > raw > JSON
 { 
   "username": "username",
   "password": "password",
+  "role": "role"
 }
 
 localhost:3000/api/users/login
@@ -107,6 +108,7 @@ Key: name, product_pict, product_pict, ... , price, description, quantity, categ
 
 BUGS:
 - still error when preview uploaded images by URL
+- error in the second hit if username or email already registered
 
 ROLE:
 part 2: 48:07
@@ -119,8 +121,8 @@ STOPPED:
 Part 7,
 
 NEXT: 
-Part 21 
+Part 8 
 
 UPLOADING FILE EXPLANATION: Part 7
 
-add URL 'api' for every API URL's and and make structure directory more logic by changing controllers to routes and services to controllers
+git commit -m "change controller name structure, create role to each users and improve validations"

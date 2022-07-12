@@ -8,7 +8,8 @@ const errors = require('./helpers/errorHandler.js')
 const env = require("dotenv"); // npm install --save dotenv (CREATING AND CONNECTING TO SERVER)
 
 // Register all the routes
-const users = require('./routes/UserRoutes.js')
+const users = require('./routes/UserAuthRoutes.js')
+const admins = require('./routes/admin/AdminAuthRoutes.js')
 const categories = require('./routes/CategoryRoutes.js')
 const products = require('./routes/ProductRoutes.js')
 
@@ -23,12 +24,14 @@ app.use(auth.authenticateToken.unless({
     path: [
         { url: '/api/users/login', methods: ['POST']},
         { url: '/api/users/register', methods: ['POST']},
+        { url: '/api/admins/login', methods: ['POST']},
         { url: '/api/categories/get-categories', methods: ['GET']}
     ]
 })) 
 
 // middleware for listening to routes
 app.use('/api/users', users)
+app.use('/api/admins', admins)
 app.use('/api/categories', categories)
 app.use('/api/products', products)
 // middleware for error responses

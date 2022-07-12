@@ -1,8 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const shortid = require("shortid");
-const categoryControllers = require('../controllers/CategoryControllers.js')  
-const { addCategory, getCategories, updateCategories, deleteCategories } = require("../controllers/CategoryControllers.js");   
+const categoryControllers = require('../controllers/CategoryController.js')  
+const { addCategory, getCategories, updateCategories, deleteCategories } = require("../controllers/CategoryController.js");   
 const { requireSignin } = require("../common-middleware"); 
 const path = require("path");
 const multer = require("multer");
