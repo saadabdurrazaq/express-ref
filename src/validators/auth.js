@@ -1,13 +1,28 @@
 const { check, validationResult } = require('express-validator');
+const User = require("../models/UserModel");
 
 exports.validateSignupRequest = [ 
     check('username')
     .notEmpty()
-    .withMessage('Username is required'), 
-
+    .withMessage('Username is required')
+    .custom(async (username) => {
+        const existingUser = await User.findOne({ username })
+                 
+        if (existingUser) {
+            throw new Error('Username already in use')
+        }
+    }),
+    
     check('email')
     .isEmail()
-    .withMessage('Valid Email is required'),
+    .withMessage('Valid Email is required')
+    .custom(async (email) => {
+        const existingUser = await User.findOne({ email })
+                 
+        if (existingUser) {
+            throw new Error('Email already in use')
+        }
+    }),
 
     check('password')
     .isLength({ min: 6 })

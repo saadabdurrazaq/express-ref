@@ -19,27 +19,15 @@ async function register(req, res) {
   let username = req.user.username;
   const user = await User.findOne({ username }); 
 
+  // if user with role user trying to create user
   if (user.role === 'user') {
     return res.status(401).json({
       message: "Only admin and super admin can create user",
     });
   }
-  
-  User.findOne({ username: req.body.username }).exec((error, user) => {
-    if (user) {
-      return res.status(400).json({
-        message: "Username already registered",
-      });
-    }
-  });
 
   User.findOne({ email: req.body.email }).exec((error, user) => { 
-    if (user) {
-      return res.status(400).json({
-        message: "Email already registered",
-      });
-    }
-      
+  
     User.estimatedDocumentCount(async (err, count) => {
       if (err) return res.status(400).json({ error });
 

@@ -35,7 +35,7 @@ app.use('/api/admins', admins)
 app.use('/api/categories', categories)
 app.use('/api/products', products)
 // middleware for error responses
-app.use(errors.errorHandler);
+// app.use(errors.errorHandler);
 
 // MongoDB connection, success and error event responses
 const uri = `mongodb+srv://${process.env.MONGO_DB_USER}:${process.env.MONGO_DB_PASSWORD}@cluster0.vnv8t.mongodb.net/${process.env.MONGO_DB_DATABASE}?retryWrites=true&w=majority`;

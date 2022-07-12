@@ -23,20 +23,7 @@ async function register(req, res) {
     });
   }
 
-  // User.findOne({ username: req.body.username }).exec((error, user) => {
-  //   if (user) {
-  //     return res.status(400).json({
-  //       message: "Username already registered",
-  //     });
-  //   }
-  // });
-
   User.findOne({ email: req.body.email }).exec((error, user) => { 
-    if (user) {
-      return res.status(400).json({
-        message: "Email already registered",
-      });
-    }
       
     User.estimatedDocumentCount(async (err, count) => {
       if (err) return res.status(400).json({ error });
