@@ -10,15 +10,15 @@ function authenticateToken(req, res, next) {
 
     if (token == null) return res.sendStatus(401)
 
-    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => {
+    jwt.verify(token, process.env.TOKEN_SECRET, (err, user) => { 
         if (err) return res.sendStatus(403)
         req.user = user
         next()
     })
-}
+} 
 
 function generateAccessToken(username) { 
-    return jwt.sign({username}, process.env.TOKEN_SECRET, { expiresIn: '1h' });
+    return jwt.sign({username}, process.env.TOKEN_SECRET, { expiresIn: '1h' }); // add role in jwt sign  
 }
 
 module.exports = {

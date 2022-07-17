@@ -29,7 +29,7 @@ function createCategories(categories, parentId = null) {
 
 async function addCategory(req, res) {
   let username = req.user.username;
-  const user = await User.findOne({ username }); 
+  const user = await User.findOne({ username });  
 
   const categoryObj = {
     name: req.body.name,

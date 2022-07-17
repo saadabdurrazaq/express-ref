@@ -1,4 +1,6 @@
 const jwt = require("jsonwebtoken");
+const User = require("../models/UserModel");
+
 // const multer = require("multer");
 // const shortid = require("shortid");
 // const path = require("path");
@@ -49,12 +51,15 @@ exports.requireSignin = (req, res, next) => {
   next();
 };
 
-// exports.userMiddleware = (req, res, next) => {
-//   if (req.user.role !== "user") {
-//     return res.status(400).json({ message: "User access denied" });
-//   }
-//   next();
-// };
+exports.userMiddleware = async (req, res, next) => {
+  let username = req.user.username;
+  const user = await User.findOne({ username });
+  
+  if (user.role !== "user") {
+    return res.status(400).json({ message: "User access denied" });
+  }
+  next();
+};
 
 exports.adminMiddleware = (req, res, next) => {
   if (req.user.role !== "admin") {
@@ -71,3 +76,7 @@ exports.superAdminMiddleware = (req, res, next) => {
   }
   next();
 };
+
+// module.exports = {
+//   userMiddleware
+// };

@@ -6,14 +6,6 @@ npm install express mongoose express-unless bcryptjs dotenv jsonwebtoken --save
 All npm install package will be added in package.json
 npm list express (for checking express version)
 
-CREATING AND CONNECTING TO SERVER: 
-- npm install --save dotenv
-- src\index.server.js
-- .env
-- node src/index.server.js in package.json
-- npm install --save-dev nodemon 
-  to activate nodemon: npm start (It will allow us to keep on running). Make sure this command already configured in package.json
-
 CREATING DATABASE: 
 - download MongoDB at mongodb.com (
   - need to register first if you dont have an account
@@ -23,6 +15,14 @@ CREATING DATABASE:
   - in Database side menu > CONNECT > Create a Database User > fill Username and Password field > hit Create Database User button
   - Choose a connection method > Connect your application > copy connection string )
 - implement the connection string in .env and index.server.js
+
+CREATING AND CONNECTING TO SERVER: 
+- npm install --save dotenv
+- src\index.server.js
+- .env
+- node src/index.server.js in package.json
+- npm install --save-dev nodemon 
+  to activate nodemon: npm start (It will allow us to keep on running). Make sure this command already configured in package.json
 
 NPM FOR CRUDS AND API'S AUTH:
 - npm install --save express-validator
@@ -107,7 +107,7 @@ Key: name, product_pict, product_pict, ... , price, description, quantity, categ
 /////////////////////////////////////////////////
 
 BUGS:
-- still error when preview uploaded images by URL
+
 
 ROLE:
 part 2: 48:07
@@ -124,4 +124,4 @@ Part 8
 
 UPLOADING FILE EXPLANATION: Part 7
 
-git commit -m "fix duplicate email and username validation"
+git commit -m "fix error when preview uploaded images by URL"

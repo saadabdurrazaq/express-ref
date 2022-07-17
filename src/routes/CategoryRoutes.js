@@ -5,7 +5,7 @@ const categoryControllers = require('../controllers/CategoryController.js')
 const { addCategory, getCategories, updateCategories, deleteCategories } = require("../controllers/CategoryController.js");   
 const { requireSignin } = require("../common-middleware"); 
 const path = require("path");
-const multer = require("multer");
+const multer = require("multer"); 
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, path.join(path.dirname(__dirname), "uploads"));
